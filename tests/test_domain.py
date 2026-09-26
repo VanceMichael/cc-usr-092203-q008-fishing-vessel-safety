@@ -5,7 +5,7 @@ from src.domain import load_domain
 class DomainTest(unittest.TestCase):
     def test_fixture_matches_domain(self):
         value = load_domain(Path("fixtures/domain.json"))
-        self.assertEqual(value["domain"], "maritime-rescue-transfer")
+        self.assertEqual(value["domain"], "fishing-vessel-departure-safety-loop")
         self.assertGreaterEqual(len(value["constraints"]), 2)
 
 if __name__ == "__main__":
