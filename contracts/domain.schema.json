@@ -6,9 +6,15 @@
     "domain",
     "version",
     "sample_id",
+    "title",
     "actors",
     "facts",
-    "constraints"
+    "records",
+    "stages",
+    "blocking_scenarios",
+    "constraints",
+    "escalation",
+    "feedback_loop"
   ],
   "properties": {
     "domain": {
@@ -20,6 +26,10 @@
       "minimum": 1
     },
     "sample_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
       "type": "string",
       "minLength": 1
     },
@@ -37,12 +47,49 @@
         "type": "string"
       }
     },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "闭环需要保存的资料类别：证照、船员、预报、各项检查、缺陷与离港许可"
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "出海前检查、整改放行、航行联系、返港反馈各阶段"
+    },
+    "blocking_scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "不得绕过未关闭缺陷的场景：换人、借设备、预报升级、转场、断网"
+    },
     "constraints": {
       "type": "array",
       "minItems": 2,
       "items": {
         "type": "string"
       }
+    },
+    "escalation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "失联或偏离计划时的自动联系与逐级升级规则"
+    },
+    "feedback_loop": {
+      "type": "string",
+      "minLength": 1,
+      "description": "返港后用实际事件反向改进检查规则的闭环约定"
     }
   },
   "additionalProperties": false
